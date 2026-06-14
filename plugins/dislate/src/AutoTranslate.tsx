@@ -13,7 +13,7 @@ const emojiRegex = /<(a?):\w+:\d+>|<@!?\d+>|<#\d+>/g
 const handler = async ({ message, optimistic }) => {
     try {
         if (optimistic) return // already handled locally
-        if (!settings.auto_translate_enabled) return
+        if (settings.auto_translate_enabled === false) return
         if (!message?.content) return
 
         const currentUser = UserStore.getCurrentUser()
